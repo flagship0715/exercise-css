@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../fa/css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+	</head>
+	<style type="text/css">
+		.top-bar-wrapper{
+			/* width: 100%; */
+			border-bottom: 1px solid #ddd;
+			background-color: #e3e4e5;
+			
+		}
+		.top-bar{
+			margin: 0 auto;
+			width: 990px;
+			line-height: 30px;
+			position: relative;
+		}
+		
+		.top-bar a:hover,
+		.top-bar .active,
+		.font-active{
+			color: red;
+		}
+		.location{
+			float: left;
+		}
+		
+		.location .current-city{
+			display: block;
+			padding: 0 10px;
+		}
+
+		.location:hover .current-city{
+			background-color: white;
+			border: 1px solid rgb(204, 204, 204);
+			border-bottom: none;
+			color:red;
+			padding-bottom: 1px;
+		}
+		.location .city-list{
+			width: 320px;
+			height: 466px;
+			background-color: white;
+			border: 1px solid rgb(204, 204, 204);
+			box-shadow: 0 2px 2px rgb(0,0,0,.3);
+			z-index: 9999;
+			position: absolute;
+			top: 31px;
+			left: 0;
+			display: none;
+		}
+		.location:hover .city-list{
+			display: block;
+			border-top: none;
+		}
+	
+		.location .current-city a{
+			margin-left: 3px;
+			display: inline-block;
+		}
+		.location .city-list .area-list{
+			height: 216px;
+			border-bottom: 1px solid #ddd;
+			margin: 10px;
+		}
+		.location .city-list .area-list li {
+			float: left;	
+			width: 60px;
+			/* padding: 0 2px; */
+		}
+		.location .city-list  li a{
+			padding: 5px 8px;	
+		}
+		.location .city-list .area-list .fist{
+			background-color: red;
+			color: white;
+		}
+		.location .city-list .area-list li a:hover:not(.fist){
+			background-color: rgb(0,0,0,.1);
+		}
+		.location .city-list .area-single{
+			height: 96px;
+			border-bottom: 1px solid #ddd;
+			margin: 10px;
+		}
+		.location .city-list .area-single div,
+		.location .city-list .avali-sites div{
+			margin-left: 10px;
+		}
+		.location .city-list .avali-sites{
+			margin: 10px;
+		}
+		.location .city-list .pre-list li,
+		.location .city-list .avali-sites li{
+			float: left;
+			width: 140px;
+		}
+		
+		.ul-list{
+			float: right;
+			/* position: absolute; */
+		}
+		.ul-list li{
+			float: left;
+			margin-right: 10px;
+		}
+		
+
+		.ul-list li a:first-child {
+			margin-right: 10px;
+		}
+		.ul-list li i {
+			margin-left: 4px;			
+		}
+		.ul-list .phone-li{
+			display: block;
+		}
+		
+
+
+		.ul-list .phone-arror{
+			border-top: 6px solid transparent;
+			border-bottom: 6px solid white;
+			border-right: 6px solid transparent;;
+			border-left: 6px solid transparent;
+			position: absolute;
+			left: 680px;
+			top:20px;
+			z-index: 9999;
+		}
+		.ul-list .phone-list{
+			position: absolute;
+			z-index: 999;
+			width: 192px;
+			height: 507px;
+			left: 500px;
+			top:30px;
+			background-color: white;
+			box-shadow: 0 0 2px rgb(0,0,0,.2);
+			/* display: none; */
+			padding: 10px;
+		}
+		.ul-list .phone-list li{
+			width: 100%;
+			margin-top:5px;
+		}
+		.ul-list .phone-list li:not(:last-child){
+			border-bottom: 1px solid #999;
+			margin-bottom: 10px;
+		}
+		
+		.ul-list .phone-list .phone-img,
+		.ul-list .phone-list .phone-detail{
+			float: left;
+		}
+		.ul-list .phone-list .phone-img{
+			margin: auto 5px;
+		}
+		.ul-list .phone-list img{
+			width: 75px;
+			height: 75px;
+			border: 1px solid #ccc;
+		}
+		.ul-list .phone-list .phone-detail p{
+			line-height: 23px;
+		}
+		
+		.ul-list .phone-all{
+			display: none;
+			position: absolute;
+		}
+		.ul-list .phone-li:hover ~.phone-all,
+		.phone-all:hover{
+			display: block;
+		}
+		
+	</style>
+	<body>
+		<div class="top-bar-wrapper">
+			<div class="top-bar w clearfix">
+				<div class="location">
+					<div class="current-city">
+						<i class="fas fa-map-marked-alt active"></i>
+						<a href="javascript:;">北京</a>						
+					</div>
+					<div class="city-list">
+						<ul class="area-list">
+							<li><a href="javascript:;" class="fist">北京</a></li>
+							<li><a href="javascript:;">上海</a></li>
+							<li><a href="javascript:;">天津</a></li>
+							<li><a href="javascript:;">重庆</a></li>
+							<li><a href="javascript:;">河北</a></li>
+							<li><a href="javascript:;">山西</a></li>
+							<li><a href="javascript:;">河南</a></li>
+							<li><a href="javascript:;">辽宁</a></li>
+							<li><a href="javascript:;">吉林</a></li>
+							<li><a href="javascript:;">黑龙江</a></li>
+							<li><a href="javascript:;">内蒙古</a></li>
+							<li><a href="javascript:;">江苏</a></li>
+							<li><a href="javascript:;">山东</a></li>
+							<li><a href="javascript:;">安徽</a></li>
+							<li><a href="javascript:;">浙江</a></li>
+							<li><a href="javascript:;">福建</a></li>
+							<li><a href="javascript:;">湖北</a></li>
+							<li><a href="javascript:;">湖南</a></li>
+							<li><a href="javascript:;">广东</a></li>
+							<li><a href="javascript:;">广西</a></li>
+							<li><a href="javascript:;">江西</a></li>
+							<li><a href="javascript:;">四川</a></li>
+							<li><a href="javascript:;">海南</a></li>
+							<li><a href="javascript:;">贵州</a></li>
+							<li><a href="javascript:;">云南</a></li>
+							<li><a href="javascript:;">西藏</a></li>
+							<li><a href="javascript:;">陕西</a></li>	
+							<li><a href="javascript:;">甘肃</a></li>
+							<li><a href="javascript:;">青海</a></li>
+							<li><a href="javascript:;">宁夏</a></li>
+							<li><a href="javascript:;">新疆</a></li>
+							<li><a href="javascript:;">港澳</a></li>	
+							<li><a href="javascript:;">台湾</a></li>
+							<li><a href="javascript:;">钓鱼岛</a></li>
+							<li><a href="javascript:;">海外</a></li>
+						</ul>
+						<div class="area-single">
+							<div>地区专享版本</div>
+							<ul class="pre-list">
+								<li><a href="javascript:;">中国港澳</a></li>
+								<li><a href="javascript:;">中国台湾</a></li>
+								<li><a href="javascript:;">中国全球</a></li>
+							</ul>
+						</div>
+						
+						<div class="avali-sites">
+							<div>Available Sites</div>
+							<ul >
+								<li>
+									<a href="javascript:;">
+									<i class="fas fa-map-marked-alt active"></i>
+									<span>
+										Global Site
+									</span>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+									<i class="fas fa-map-marked-alt active"></i>
+									<span>
+										Global Site1
+									</span>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+									<i class="fas fa-map-marked-alt active"></i>
+									<span>
+										Global Site2
+									</span>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+									<i class="fas fa-map-marked-alt active"></i>
+									<span>
+										Global Site3
+									</span>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+									<i class="fas fa-map-marked-alt active"></i>
+									<span>
+										Global Site4
+									</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+				</div>
+				<ul class="ul-list">
+					<li><a href="javascript:;">你好，请登录</a><a  class="active" href="javacript:;">免费注册</a></li>
+					<li><span>|</span></li>
+					<li><a  href="javascript:;">我的订单</a></li>
+					<li><span>|</span></li>
+					<li><div>我的京东<i class=" fas fa-chevron-down"></i></div></li>
+					<li><span>|</span></li>
+					<li><a href="javascript:;">京东会员</a></li>
+					<li><span>|</span></li>
+					<li><span  class="font-active">企业采购<i class=" fas fa-chevron-down fa-xs" style="font-size:6px; line-height: 30px;"></i></span></li>
+					<li><span>|</span></li>
+					<li><span>客户服务</span></li>
+					<li><span>|</span></li>
+					<li><span>网站导航<i class=" fas fa-chevron-down"></i></span></li>
+					<li><span>|</span></li>
+					<li class="phone-li"><span>手机京东</span></li>
+					
+					<li><span>|</span></li>
+					<li><a href="javascript:;">网站无障碍</a></li>
+					
+					<div class="phone-all">
+						<div class="phone-arror">					
+						</div>
+						<div class="phone-list">
+							<ul>
+								<li>
+									<div class="phone-img">
+										<img src="img/01.png" >
+									</div>
+									<div class="phone-detail">
+										<p>手机京东</p>
+										<p class="active">
+											新人专享大礼包
+										</p>
+										<div>
+											<a href="javascript:;"><i class="fab fa-apple"></i></a>
+											<a href="javascript:;"><i class="fab fa-android"></i></a>
+											<a href="javascript:;"><i class="fab fa-app-store-ios"></i></a>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="phone-img">
+										<img src="img/02.png" >
+									</div>
+									<div class="phone-detail">
+										<p>关注京东</p>
+										<p class="">
+											JD.COM
+										</p>
+										<p>
+											<a class="active" href="javascript:;">抢5元红包</a>
+										</p>
+									</div>
+								</li>
+								<li>
+									<div class="phone-img">
+										<img src="img/03.jpg" >
+									</div>
+									<div class="phone-detail">
+										<a href="javascript:;">京东金融客户端</a>
+										<p class="active">
+											新人专享大礼包
+										</p>
+										<div>
+											<a href="javascript:;"><i class="fab fa-apple"></i></a>
+											<a href="javascript:;"><i class="fab fa-android"></i></a>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="phone-img">
+										<img src="img/04.png" >
+									</div>
+									<div class="phone-detail">
+										<p>京东健康客户端</p>
+										<div>
+											<a href="javascript:;"><i class="fab fa-apple"></i></a>
+											<a href="javascript:;"><i class="fab fa-android"></i></a>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="phone-img">
+										<img src="img/05.png" >
+									</div>
+									<div class="phone-detail">
+										<p>关注京东小程序</p>
+										<div class="active">
+											新人0.1元购
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>										
+					</div>
+					
+				</ul>
+			</div>
+			
+		</div>
+	</body>
+</html>

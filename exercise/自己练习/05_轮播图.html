@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<style type="text/css">
+			.img-main {
+				width: 590px;
+				height: 470px;
+				position: relative;
+				/* overflow: hidden; */
+				margin: 100px auto;
+			}
+	
+			.img-list {
+				position: absolute;	
+				z-index: 1;
+			/* width: 590px;
+				height: 470px; */
+					
+			}
+			.img-list li{
+				/* float: left; */
+				z-index: 2000;
+				width: 590px;
+				height: 470px;
+			}
+			.img-list img{
+				width: 590px;
+				height: 470px;
+			}
+			/* 通过修改元素的层级来显示指定的图片 */
+		/* 	.img-list li:nth-child(1){
+			    z-index: 1;
+			} */
+			.img-main .img-icons {
+				width: 170px;
+				height: 10px;
+				/* background-color: #ccc; */
+				position: absolute;
+				bottom: 30px;
+				left: 100px;
+				z-index: 2001;
+			}
+			.img-main .img-list a {
+				cursor: pointer;
+	
+			}
+			.img-main .img-icons li{
+				width: 10px;
+				height: 10px;
+				float: left;
+				margin: 0 2px;
+				background-color: rgba(255, 255, 255, .3);
+				border-radius: 50%;
+				border: 2px solid transparent;
+				background-clip: content-box;
+				
+				
+			}
+			.img-main .img-icons li:hover{
+				background-color: white;
+				border: 2px solid #c0c0c0;
+			}
+			#left{
+				width: 36px;
+				height: 36px;
+				position: absolute;
+				background-color: black;
+				top:217px;
+				left: -10px;
+				border-radius: 0px 18px 18px 0px;
+				z-index: 9999;
+				
+			}
+			#left a {
+				text-decoration: none;
+				/* font-size: 20px; */
+				line-height: 36px;
+				color: white;
+				margin-left: 12px;
+				font-weight: bold;
+				z-index: 9999;
+			}
+			#right{
+				width: 36px;
+				height: 36px;
+				position: absolute;
+				float: right;
+				background-color: black;
+				top:217px;
+				right: -10px;
+				border-radius: 18px 0px 0px 18px;
+				z-index: 9999;
+			}
+			#right a {
+				text-decoration: none;
+				/* font-size: 20px; */
+				line-height: 36px;
+				color: white;
+				margin-left: 13px;
+				font-weight: bold;
+				z-index: 9999;
+			}
+			#left:hover,#right:hover{
+				background-color: rgba(222,222,223,.5);;
+			}
+			
+		</style>
+		<script src="js/05.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="img-main">
+			<ul class="img-list" id="ul_img">
+			<li><a href="javascript:;"><img src="../img/05/1.jpg" ></a></li>
+			<li><a href="javascript:;"><img src="../img/05/2.jpg" ></a></li>
+			<li><a href="javascript:;"><img src="../img/05/3.jpg" ></a></li>
+			<li><a href="javascript:;"><img src="../img/05/4.jpg" ></a></li>
+			<li><a href="javascript:;"><img src="../img/05/5.jpg" ></a></li>
+			<li><a href="javascript:;"><img src="../img/05/6.jpg" ></a></li>
+			<li><a href="javascript:;"><img src="../img/05/7.jpg" ></a></li>
+			<li><a href="javascript:;"><img src="../img/05/8.jpg" ></a></li>
+			</ul>
+			<ul class="img-icons" id="ul_cons">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div id="left" >
+				<a href="javascript:;">></a>
+			</div>
+			<div id="right">
+				<a href="javascript:;"><</a>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>
